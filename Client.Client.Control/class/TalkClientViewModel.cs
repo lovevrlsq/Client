@@ -14,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.IO;
+using Client.Client.Control.PicService;
 
 namespace Client.Client.Control
 {
@@ -451,6 +453,25 @@ namespace Client.Client.Control
         /// <param name="parameter"></param>
         void ShowUploadPicWindow(object parameter)
         {
+            OpenFileDialog dialog = new OpenFileDialog()
+            {
+                Filter = "图片 (*.jpg)|*.jpg",
+                Multiselect = false  //不允许多选 
+            };
+            bool chooseFile = dialog.ShowDialog() == true;
+            if (!chooseFile) { return; }
+
+            Stream tStream = dialog.File.OpenRead();
+            byte[] t = new byte[tStream.Length];
+            tStream.Read(t, 0, (int)tStream.Length);
+            PicServiceClient client = new PicServiceClient();
+            client.UploadCompleted += (_sender, _e) =>
+            {
+                PicServiceClient c = (PicServiceClient)_sender;
+                MessageValue += string.Format("[^pic]{0}[$pic]", _e.Result);
+                c.CloseAsync();
+            };
+            client.UploadAsync(t);
         }
 
         #endregion

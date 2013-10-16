@@ -66,6 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="class\TalkingManModel.cs" />
+    <Compile Include="CoverFloorTool.xaml.cs">
+      <DependentUpon>CoverFloorTool.xaml</DependentUpon>
+    </Compile>
     <Compile Include="tool\TalkButtonNeedUserConverter.cs" />
     <Compile Include="tool\ShowMyOnlineStatusConverter.cs" />
     <Compile Include="tool\ChooseUserGroupConverter.cs" />
@@ -119,6 +122,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="CoverFloorTool.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="FriendListButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

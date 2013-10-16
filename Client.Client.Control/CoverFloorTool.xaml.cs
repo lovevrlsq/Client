@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace Client.Control
+namespace Client.Client.Control
 {
     /// <summary>
     /// 遮蔽层控件（显示 Loading...）
