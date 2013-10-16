@@ -18,6 +18,7 @@ namespace Client.Client.Control
         public TalkTool()
         {
             InitializeComponent();
+            BingSomthing();
         }
 
         #region 依赖属性

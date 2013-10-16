@@ -39,7 +39,7 @@ namespace Client.Client.Control
         int countOfOnlineFriends = 0;
         TalkingManModel talkingNow = null;
         string messageValue = "";
-        string self = "Admin";
+        string self = "abc";
         List<UserInfoModel> allUsers = new List<UserInfoModel>();
         bool haveNewMessage = false;
         bool messageToolCanSee = false;
