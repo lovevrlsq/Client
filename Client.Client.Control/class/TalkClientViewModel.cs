@@ -14,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace Client.Client.Control
 {
@@ -426,6 +428,8 @@ namespace Client.Client.Control
         /// <param name="parameter"></param>
         void ShowChooseIconWindow(object parameter)
         {
+            ChooseIconWindow ciw = new ChooseIconWindow();
+            ciw.Show();
         }
 
         #endregion
@@ -450,6 +454,34 @@ namespace Client.Client.Control
         /// <param name="parameter"></param>
         void ShowScreenshotWindow(object parameter)
         {
+            TalkClient.Myself.Visibility = Visibility.Collapsed;
+            UIElement ui = Application.Current.RootVisual;
+            WriteableBitmap wb = new WriteableBitmap(ui, null);
+            TalkClient.Myself.Visibility = Visibility.Visible;
+            int width = wb.PixelWidth;
+            int height = wb.PixelHeight;
+            int bands = 3;
+            byte[][,] raster = new byte[bands][,];
+            for (int i = 0; i < bands; i++)
+            {
+                raster[i] = new byte[width, height];
+            }
+            for (int row = 0; row < height; row++)
+            {
+                for (int column = 0; column < width; column++)
+                {
+                    int pixel = wb.Pixels[width * row + column];
+                    raster[0][column, row] = (byte)(pixel >> 16); 
+                    raster[1][column, row] = (byte)(pixel >> 8); 
+                    raster[2][column, row] = (byte)pixel;
+                }
+            }
+            FluxJpeg.Core.ColorModel model = new FluxJpeg.Core.ColorModel 
+            { colorspace = FluxJpeg.Core.ColorSpace.RGB };
+            FluxJpeg.Core.Image img = new FluxJpeg.Core.Image(model, raster);
+            MemoryStream stream = new MemoryStream();
+            FluxJpeg.Core.Encoder.JpegEncoder encoder = new FluxJpeg.Core.Encoder.JpegEncoder(img, 100, stream);
+            byte[] binaryData = stream.ToArray();
         }
 
         #endregion

@@ -19,6 +19,8 @@ namespace Client.Client.Control
             InitializeComponent();
             TalkClientViewModel vm = new TalkClientViewModel();
             this.DataContext = vm;
+            Myself = this;
         }
+        public static TalkClient Myself { get; set; }
     }
 }

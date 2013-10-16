@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FJ.Core">
+      <HintPath>..\packages\Flux.Jpeg.Core.0.7.2\lib\sl50\FJ.Core.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -65,6 +68,12 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseIconButton.xaml.cs">
+      <DependentUpon>ChooseIconButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseIconWindow.xaml.cs">
+      <DependentUpon>ChooseIconWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="class\TalkingManModel.cs" />
     <Compile Include="tool\TalkButtonNeedUserConverter.cs" />
     <Compile Include="tool\ShowMyOnlineStatusConverter.cs" />
@@ -119,6 +128,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ChooseIconButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChooseIconWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FriendListButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,6 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="class\_class.cd" />
+    <None Include="packages.config" />
     <None Include="Service References\PicService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -221,6 +239,36 @@
     <None Include="Service References\ChatService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Resource Include="icon\41.png" />
+    <Resource Include="icon\42.png" />
+    <Resource Include="icon\43.png" />
+    <Resource Include="icon\44.png" />
+    <Resource Include="icon\45.png" />
+    <Resource Include="icon\46.png" />
+    <Resource Include="icon\47.png" />
+    <Resource Include="icon\48.png" />
+    <Resource Include="icon\49.png" />
+    <Resource Include="icon\50.png" />
+    <Resource Include="icon\51.png" />
+    <Resource Include="icon\52.png" />
+    <Resource Include="icon\53.png" />
+    <Resource Include="icon\54.png" />
+    <Resource Include="icon\55.png" />
+    <Resource Include="icon\56.png" />
+    <Resource Include="icon\57.png" />
+    <Resource Include="icon\58.png" />
+    <Resource Include="icon\59.png" />
+    <Resource Include="icon\60.png" />
+    <Resource Include="icon\61.png" />
+    <Resource Include="icon\62.png" />
+    <Resource Include="icon\63.png" />
+    <Resource Include="icon\64.png" />
+    <Resource Include="icon\65.png" />
+    <Resource Include="icon\66.png" />
+    <Resource Include="icon\67.png" />
+    <Resource Include="icon\68.png" />
+    <Resource Include="icon\69.png" />
+    <Resource Include="icon\70.png" />
     <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\PicService\PicService.wsdl" />
     <None Include="Service References\PicService\PicService.xsd">
@@ -248,6 +296,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Client.CustomerService.Control\Client.CustomerService.Control.csproj">
+      <Project>{747220c9-2893-42be-b066-fc492194d146}</Project>
+      <Name>Client.CustomerService.Control</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
