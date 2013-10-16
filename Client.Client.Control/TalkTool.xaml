@@ -125,7 +125,7 @@
             </StackPanel>
         </Grid>
         <!--消息显示框-->
-        <ScrollViewer Width="498" Height="210" Canvas.Left="100" Canvas.Top="65" BorderThickness="0"
+        <ScrollViewer Name="sv" Width="498" Height="210" Canvas.Left="100" Canvas.Top="65" BorderThickness="0"
                       Background="White" Padding="0">
             <ItemsControl ItemsSource="{Binding Messages}">
                 <ItemsControl.ItemTemplate>

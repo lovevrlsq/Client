@@ -39,7 +39,7 @@ namespace Client.Client.Control
         int countOfOnlineFriends = 0;
         TalkingManModel talkingNow = null;
         string messageValue = "";
-        string self = "abc";
+        string self = "Admin";
         List<UserInfoModel> allUsers = new List<UserInfoModel>();
         bool haveNewMessage = false;
         bool messageToolCanSee = false;
@@ -444,6 +444,13 @@ namespace Client.Client.Control
         void ShowChooseIconWindow(object parameter)
         {
             ChooseIconWindow ciw = new ChooseIconWindow();
+            ciw.Closed += (send, e) =>
+                {
+                    ChooseIconWindow cw = (ChooseIconWindow)send;
+                    if (cw.DialogResult != true) { return; }
+                    string t = string.Format("[^icon]{0}[$icon]", cw.State);
+                    MessageValue += t;
+                };
             ciw.Show();
         }
 
@@ -505,17 +512,26 @@ namespace Client.Client.Control
                 for (int column = 0; column < width; column++)
                 {
                     int pixel = wb.Pixels[width * row + column];
-                    raster[0][column, row] = (byte)(pixel >> 16); 
-                    raster[1][column, row] = (byte)(pixel >> 8); 
+                    raster[0][column, row] = (byte)(pixel >> 16);
+                    raster[1][column, row] = (byte)(pixel >> 8);
                     raster[2][column, row] = (byte)pixel;
                 }
             }
-            FluxJpeg.Core.ColorModel model = new FluxJpeg.Core.ColorModel 
-            { colorspace = FluxJpeg.Core.ColorSpace.RGB };
+            FluxJpeg.Core.ColorModel model = new FluxJpeg.Core.ColorModel { colorspace = FluxJpeg.Core.ColorSpace.RGB };
             FluxJpeg.Core.Image img = new FluxJpeg.Core.Image(model, raster);
             MemoryStream stream = new MemoryStream();
             FluxJpeg.Core.Encoder.JpegEncoder encoder = new FluxJpeg.Core.Encoder.JpegEncoder(img, 100, stream);
+            encoder.Encode();
             byte[] binaryData = stream.ToArray();
+
+            PicServiceClient client = new PicServiceClient();
+            client.UploadCompleted += (_sender, _e) =>
+            {
+                PicServiceClient c = (PicServiceClient)_sender;
+                MessageValue += string.Format("[^pic]{0}[$pic]", _e.Result);
+                c.CloseAsync();
+            };
+            client.UploadAsync(binaryData);
         }
 
         #endregion
