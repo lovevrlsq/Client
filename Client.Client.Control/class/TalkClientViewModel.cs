@@ -595,6 +595,11 @@ namespace Client.Client.Control
         {
             int c = allUsers.Count == 0 ? 0 : allUsers.Sum(x => x.CountOfNewmessages);
             HaveNewMessage = c > 0;
+            if (HaveNewMessage)
+            {
+                TalkClient.Myself._music.Stop();
+                TalkClient.Myself._music.Play();
+            }
         }
 
         /// <summary>
@@ -621,6 +626,7 @@ namespace Client.Client.Control
             var t = allUsers.FirstOrDefault(x => x.Username == username);
             if (t == null) { return; }
             t.CountOfNewmessages++;
+            ResetCountOfAllNewMessages();
         }
 
         public void WriteMessage(MessageResult message)

@@ -49,5 +49,7 @@
         <CompositeTransform x:Name="_offset" TranslateX="0" TranslateY="0"/>
     </UserControl.RenderTransform>
 
-    <Grid x:Name="root" Height="20" Width="20" Style="{StaticResource ResourceKey=cs}"/>
+    <Grid x:Name="root" Height="20" Width="20" Style="{StaticResource ResourceKey=cs}">
+        <MediaElement Name="_music" Height="0" Width="0" Source="music/music_p.wma" Volume="1" AutoPlay="False"/>
+    </Grid>
 </UserControl>

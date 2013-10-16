@@ -230,6 +230,11 @@
   <ItemGroup>
     <Resource Include="img\waitForLoding.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="music\music_p.wma">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

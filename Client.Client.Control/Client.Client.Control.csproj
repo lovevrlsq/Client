@@ -276,6 +276,9 @@
     <Resource Include="icon\68.png" />
     <Resource Include="icon\69.png" />
     <Resource Include="icon\70.png" />
+    <Resource Include="music\music_p.wma">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\PicService\PicService.wsdl" />
     <None Include="Service References\PicService\PicService.xsd">

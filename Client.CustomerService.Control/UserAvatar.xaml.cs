@@ -38,6 +38,8 @@ namespace Client.CustomerService.Control
                 {
                     s.Stop();
                     s.Begin();
+                    tool._music.Stop();
+                    tool._music.Play();
                 }
                 else
                 {
