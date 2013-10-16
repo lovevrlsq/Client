@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="LayoutRoot" Width="98" Height="30" MouseLeftButtonDown="OnChoose">
+    <Grid x:Name="LayoutRoot" Width="98" Height="30">
         <Grid.Background>
             <SolidColorBrush Color="Black" Opacity="0"/>
         </Grid.Background>
@@ -13,7 +13,8 @@
         <Border Height="1" VerticalAlignment="Bottom" Background="#FFC8C8C8"/>
         <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
             <TextBlock Name="text_username" Width="45" FontFamily="SimSun" Margin="0,3,0,0"
-                       HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF333333"/>
+                       HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF333333" 
+                       MouseLeftButtonDown="OnChoose"/>
             <Control:UserOnlineStatusIcon Online="{Binding Online}" Margin="10,0,0,0" />
             <TextBlock Name="button_x" Text="×" FontFamily="SimSun" Margin="6,3,0,0" Cursor="Hand"
                        HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF8C8C8C"

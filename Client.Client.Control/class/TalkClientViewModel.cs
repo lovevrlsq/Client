@@ -16,6 +16,8 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
 using System.IO;
+using System.IO;
+using Client.Client.Control.PicService;
 
 namespace Client.Client.Control
 {
@@ -416,6 +418,19 @@ namespace Client.Client.Control
         /// <param name="parameter"></param>
         void SendMessage(object parameter)
         {
+            if (TalkingNow == null || !allUsers.Any(x => x.Username == TalkingNow.Username))
+            {
+                return;
+            }
+            if (MessageValue == "") { return; }
+            SendMessageImport import = new SendMessageImport
+            {
+                From = Self,
+                To = TalkingNow.Username,
+                Content = MessageValue
+            };
+            ChatClient.SendMessageAsync(import);
+            MessageValue = "";
         }
 
         #endregion
@@ -442,6 +457,25 @@ namespace Client.Client.Control
         /// <param name="parameter"></param>
         void ShowUploadPicWindow(object parameter)
         {
+            OpenFileDialog dialog = new OpenFileDialog()
+            {
+                Filter = "图片 (*.jpg)|*.jpg",
+                Multiselect = false  //不允许多选 
+            };
+            bool chooseFile = dialog.ShowDialog() == true;
+            if (!chooseFile) { return; }
+
+            Stream tStream = dialog.File.OpenRead();
+            byte[] t = new byte[tStream.Length];
+            tStream.Read(t, 0, (int)tStream.Length);
+            PicServiceClient client = new PicServiceClient();
+            client.UploadCompleted += (_sender, _e) =>
+            {
+                PicServiceClient c = (PicServiceClient)_sender;
+                MessageValue += string.Format("[^pic]{0}[$pic]", _e.Result);
+                c.CloseAsync();
+            };
+            client.UploadAsync(t);
         }
 
         #endregion
@@ -532,7 +566,7 @@ namespace Client.Client.Control
         void ResetFriendList()
         {
             UsersNowShow.Clear();
-            allUsers.Where(x => x.UserType == UserGroupType).ToList().ForEach(x =>
+            allUsers.Where(x => x.UserType == UserGroupType).OrderBy(x => x.Status).ToList().ForEach(x =>
                 {
                     UsersNowShow.Add(x);
                 });
@@ -568,14 +602,23 @@ namespace Client.Client.Control
 
         public void AddTheCountOfNewMessageForSomeone(string username)
         {
+            var t = allUsers.FirstOrDefault(x => x.Username == username);
+            if (t == null) { return; }
+            t.CountOfNewmessages++;
         }
 
         public void WriteMessage(MessageResult message)
         {
+            Messages.Add(message);
         }
 
         public void ChangeOnlineStatus(string username, UserOnlineStatus onlineStatus, bool isOfficial)
         {
+            var t = allUsers.FirstOrDefault(x => x.Username == username);
+            if (t == null) { return; }
+            t.Status = isOfficial ? UserShowStatus.客服
+                : onlineStatus == UserOnlineStatus.离线 ? UserShowStatus.离线 : UserShowStatus.在线;
+            ResetFriendList();
         }
 
         #endregion
