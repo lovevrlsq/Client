@@ -414,6 +414,19 @@ namespace Client.Client.Control
         /// <param name="parameter"></param>
         void SendMessage(object parameter)
         {
+            if (TalkingNow == null || !allUsers.Any(x => x.Username == TalkingNow.Username))
+            {
+                return;
+            }
+            if (MessageValue == "") { return; }
+            SendMessageImport import = new SendMessageImport
+            {
+                From = Self,
+                To = TalkingNow.Username,
+                Content = MessageValue
+            };
+            ChatClient.SendMessageAsync(import);
+            MessageValue = "";
         }
 
         #endregion
@@ -500,7 +513,7 @@ namespace Client.Client.Control
         void ResetFriendList()
         {
             UsersNowShow.Clear();
-            allUsers.Where(x => x.UserType == UserGroupType).ToList().ForEach(x =>
+            allUsers.Where(x => x.UserType == UserGroupType).OrderBy(x => x.Status).ToList().ForEach(x =>
                 {
                     UsersNowShow.Add(x);
                 });
@@ -536,14 +549,23 @@ namespace Client.Client.Control
 
         public void AddTheCountOfNewMessageForSomeone(string username)
         {
+            var t = allUsers.FirstOrDefault(x => x.Username == username);
+            if (t == null) { return; }
+            t.CountOfNewmessages++;
         }
 
         public void WriteMessage(MessageResult message)
         {
+            Messages.Add(message);
         }
 
         public void ChangeOnlineStatus(string username, UserOnlineStatus onlineStatus, bool isOfficial)
         {
+            var t = allUsers.FirstOrDefault(x => x.Username == username);
+            if (t == null) { return; }
+            t.Status = isOfficial ? UserShowStatus.客服
+                : onlineStatus == UserOnlineStatus.离线 ? UserShowStatus.离线 : UserShowStatus.在线;
+            ResetFriendList();
         }
 
         #endregion
