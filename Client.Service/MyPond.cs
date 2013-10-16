@@ -60,7 +60,6 @@ namespace Client.Service
                         Tokens.Add(t);
                     });
             }
-            StartTimeline();
         }
         #region 移除客户端回调和关注用户
 
