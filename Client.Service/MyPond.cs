@@ -47,9 +47,15 @@ namespace Client.Service
             Tokens = new List<UserTokenAndCallback>();
             using (MainDatadbmlDataContext db = new MainDatadbmlDataContext())
             {
-                db.UserInfo.ToList().ForEach(x =>
+                db.IWorld_Author.ToList().ForEach(x =>
                     {
-                        UserToken token = new UserToken(x.UserID, x.ID, x.ParentUID);
+                        string pid = "Null";
+                        if (x.Layer > 1)
+                        {
+                            pid = db.IWorld_Author.First(u => u.LeftKey < x.LeftKey && u.RightKey > x.RightKey && u.Layer == x.Layer - 1)
+                                .Id.ToString();
+                        }
+                        UserToken token = new UserToken(x.Username, x.Id, pid);
                         token.TimeoutEventHandler += RemoveCallback;
                         UserTokenAndCallback t = new UserTokenAndCallback
                         {
@@ -208,9 +214,13 @@ namespace Client.Service
         /// </summary>
         public void StartTimeline()
         {
-            System.Timers.Timer timer = new System.Timers.Timer(2000);
+            System.Timers.Timer timer = new System.Timers.Timer(2 * 1000);
             timer.Elapsed += CheckIfTimeout;
             timer.Start();
+
+            System.Timers.Timer timer2 = new System.Timers.Timer(120 * 1000);
+            timer2.Elapsed += UpdateTokens;
+            timer2.Start();
         }
 
         /// <summary>
@@ -224,6 +234,37 @@ namespace Client.Service
                 {
                     x.Token.CheckIfTimeOut();
                 });
+        }
+
+        /// <summary>
+        /// 更新用户列表
+        /// </summary>
+        /// <param name="sender">触发对象</param>
+        /// <param name="e">监视对象</param>
+        void UpdateTokens(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            using (MainDatadbmlDataContext db = new MainDatadbmlDataContext())
+            {
+                db.IWorld_Author.ToList().ForEach(x =>
+                    {
+                        if (Tokens.Any(u => u.Token.Username == x.Username)) { return; }
+                        string pid = "Null";
+                        if (x.Layer > 1)
+                        {
+                            pid = db.IWorld_Author.First(u => u.LeftKey < x.LeftKey && u.RightKey > x.RightKey && u.Layer == x.Layer - 1)
+                                .Id.ToString();
+                        }
+                        UserToken token = new UserToken(x.Username, x.Id, pid);
+                        token.TimeoutEventHandler += RemoveCallback;
+                        UserTokenAndCallback t = new UserTokenAndCallback
+                        {
+                            Token = token,
+                            TargetUser = "",
+                            Callback = null
+                        };
+                        Tokens.Add(t);
+                    });
+            }
         }
 
         #endregion

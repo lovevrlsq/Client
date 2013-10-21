@@ -1,36 +1,48 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CnLotteryDbs" Class="MainDatadbmlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=MAGICVR-PC;Initial Catalog=CnLotteryDbs;Persist Security Info=True;User ID=sa" SettingsObjectName="Client.Model.Properties.Settings" SettingsPropertyName="CnLotteryDbsConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.UserInfo" Member="UserInfo">
-    <Type Name="UserInfo">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="UserPwd" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="ParentUID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="RegTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="IsOnline" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LastLoginTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IsActive" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Bonus" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="FullPath" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CarrierBankCardNo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="MobilePhoneNum" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="BonusToParent" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="QQ" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="[Level]" Member="Level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IWorld" Class="MainDatadbmlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MAGICVR-PC;Initial Catalog=IWorld;Integrated Security=True" SettingsObjectName="Client.Model.Properties.Settings" SettingsPropertyName="IWorldConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.IWorld_Author" Member="IWorld_Author">
+    <Type Name="IWorld_Author">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SafeCode" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BindingEmail" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsAgents" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NormalReturnPoints" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="UncertainReturnPoints" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Money" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="MoneyBeFrozen" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Consumption" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Integral" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Holder" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Card" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Bank" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BindingCard" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="CanMoneyToLower" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="FreezingLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="RiseBonus" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="RankID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Nickname" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="LastUpRankTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IsRankEnable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaxBonus" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DishScore" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="MaxOfSubordinate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Subordinate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginIp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LeftKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RightKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Layer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tree" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IWorld_Administrator" Member="IWorld_Administrator">
+    <Type Name="IWorld_Administrator">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastLoginTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginIp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

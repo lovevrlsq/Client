@@ -16,7 +16,6 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
 using System.IO;
-using System.IO;
 using Client.Client.Control.PicService;
 
 namespace Client.Client.Control
