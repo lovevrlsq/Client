@@ -15,7 +15,7 @@ namespace Client.Host.Framework
         static ServiceHost chatHost = new ServiceHost(typeof(ChatService));
         static ServiceHost picHost = new ServiceHost(typeof(PicService));
         static ServiceHost loginHost = new ServiceHost(typeof(OfficialLoginService));
-        static ServiceHost domainHost = new ServiceHost(typeof(DomainService));
+        //static ServiceHost domainHost = new ServiceHost(typeof(DomainService));
         static bool running = false;
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Client.Host.Framework
             chatHost.Open();
             picHost.Open();
             loginHost.Open();
-            domainHost.Open();
+            //domainHost.Open();
             running = true;
         }
 
@@ -45,7 +45,7 @@ namespace Client.Host.Framework
             chatHost.Close();
             picHost.Close();
             loginHost.Close();
-            domainHost.Close();
+            //domainHost.Close();
             Reset();
             running = false;
         }
@@ -58,7 +58,7 @@ namespace Client.Host.Framework
             chatHost = new ServiceHost(typeof(ChatService));
             picHost = new ServiceHost(typeof(PicService));
             loginHost = new ServiceHost(typeof(OfficialLoginService));
-            domainHost = new ServiceHost(typeof(DomainService));
+            //domainHost = new ServiceHost(typeof(DomainService));
         }
     }
 }
