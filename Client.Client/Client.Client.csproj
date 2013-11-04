@@ -95,7 +95,9 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <Resource Include="01.jpg" />
-    <Content Include="ServiceReferences.ClientConfig" />
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Client.Client.Control\Client.Client.Control.csproj">

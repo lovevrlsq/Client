@@ -66,6 +66,7 @@ namespace Client.Service
                         Tokens.Add(t);
                     });
             }
+            StartTimeline();
         }
         #region 移除客户端回调和关注用户
 
@@ -218,7 +219,7 @@ namespace Client.Service
             timer.Elapsed += CheckIfTimeout;
             timer.Start();
 
-            System.Timers.Timer timer2 = new System.Timers.Timer(120 * 1000);
+            System.Timers.Timer timer2 = new System.Timers.Timer(2 * 1000);
             timer2.Elapsed += UpdateTokens;
             timer2.Start();
         }
