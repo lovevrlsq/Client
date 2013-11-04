@@ -261,6 +261,7 @@ namespace Client.CustomerService.Framework
             TargetUser = parameter.ToString();
             DoingNow = "发送消息";
             Users.First(x => x.Username == TargetUser).CountOfNewMessage = 0;
+            ResetUserTrun();
             ResetPage();
             chatClient.ChangeTargetUserAsync(TargetUser, Username);
         }
@@ -385,6 +386,7 @@ namespace Client.CustomerService.Framework
                     Users.First(u => u.Username == x.Username).CountOfNewMessage = x.Count;
                 });
             OnPropertyChanged("Users");
+            ResetUserTrun();
         }
 
         #endregion
@@ -454,6 +456,7 @@ namespace Client.CustomerService.Framework
         {
             if (!Users.Any(x => x.Username == username)) { return; }
             Users.First(x => x.Username == username).CountOfNewMessage++;
+            ResetUserTrun();
         }
 
         public void WriteMessage(MessageResult message)
@@ -482,6 +485,28 @@ namespace Client.CustomerService.Framework
                 u.UserType = UserInfoModel.UserModelType.离线;
             }
             OnPropertyChanged("Users");
+            ResetUserTrun();
+        }
+
+        #endregion
+
+        #region 重置客户列表排序
+
+        /// <summary>
+        /// 刷新用户排序
+        /// </summary>
+        void ResetUserTrun()
+        {
+            List<UserInfoModel> tList = Users.ToList();
+            tList = tList.OrderBy(x => x.UserType).OrderByDescending(x => x.CountOfNewMessage).ToList();
+            lock (Users)
+            {
+                Users.Clear();
+                tList.ForEach(x =>
+                    {
+                        Users.Add(x);
+                    });
+            }
         }
 
         #endregion

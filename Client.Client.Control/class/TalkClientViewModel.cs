@@ -582,7 +582,8 @@ namespace Client.Client.Control
         void ResetFriendList()
         {
             UsersNowShow.Clear();
-            allUsers.Where(x => x.UserType == UserGroupType).OrderBy(x => x.Status).ToList().ForEach(x =>
+            allUsers.Where(x => x.UserType == UserGroupType).OrderBy(x => x.Status)
+                .OrderByDescending(x => x.CountOfNewmessages).ToList().ForEach(x =>
                 {
                     UsersNowShow.Add(x);
                 });
@@ -627,6 +628,7 @@ namespace Client.Client.Control
             if (t == null) { return; }
             t.CountOfNewmessages++;
             ResetCountOfAllNewMessages();
+            ResetFriendList();
         }
 
         public void WriteMessage(MessageResult message)
