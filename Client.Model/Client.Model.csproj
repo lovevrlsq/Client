@@ -62,6 +62,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="QuickReply.cs" />
     <Compile Include="RecordingTimeModelBase.cs" />
     <Compile Include="UserOnlineStatus.cs" />
     <Compile Include="UserToken.cs" />

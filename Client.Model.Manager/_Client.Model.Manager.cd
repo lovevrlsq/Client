@@ -21,5 +21,12 @@
       <FileName>IpToAddressManager.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Client.Model.Manager.QuickReplyManager" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>QuickReplyManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Microsoft YaHei UI" Size="9" />
 </ClassDiagram>

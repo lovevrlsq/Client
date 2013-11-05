@@ -28,6 +28,11 @@ namespace Client.Model
         /// </summary>
         public DbSet<IpToAddress> PondOfIpToAddress { get; set; }
 
+        /// <summary>
+        /// 快捷回复的数据存储区
+        /// </summary>
+        public DbSet<QuickReply> PondOfQuickReply { get; set; }
+
         #endregion
 
         #region 重写契约
@@ -42,6 +47,9 @@ namespace Client.Model
 
             modelBuilder.Entity<IpToAddress>().ToTable("client_ipToAddressr");
             modelBuilder.Entity<IpToAddress>().HasKey(x => x.Id);
+
+            modelBuilder.Entity<QuickReply>().ToTable("client_quickReply");
+            modelBuilder.Entity<QuickReply>().HasKey(x => x.Id);
         }
 
         #endregion
