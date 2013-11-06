@@ -19,14 +19,14 @@
   <Class Name="Client.Service.MyPond" Collapsed="true">
     <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAQAAAAAAICYAABAIIAADAAQAEAAEAAAAABBAAA=</HashCode>
+      <HashCode>ABAAAAQAAAAAAICYAABAIIAADAAQAEAAEQAAAABBAAA=</HashCode>
       <FileName>MyPond.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Client.Service.ChatService" Collapsed="true">
     <Position X="5.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAEAACAAAAAACAAQEAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAEAACAAAAAACAQQEAAAAAAAAAAAAAA=</HashCode>
       <FileName>ChatService.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -42,7 +42,7 @@
   <Interface Name="Client.Service.IChatService" Collapsed="true">
     <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAEAACAAAAAACAAQEAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAEAACAAAAAACAQQEAAAAAAAAAAAAAA=</HashCode>
       <FileName>IChatService.cs</FileName>
     </TypeIdentifier>
   </Interface>
