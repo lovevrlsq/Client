@@ -34,16 +34,16 @@ namespace Client.Service
         /// <param name="username">用户名</param>
         /// <param name="context">正文</param>
         /// <returns>返回一个布尔值 标识操作是否成功</returns>
-        public bool AddQuickReply(string username, string context)
+        public QuickReplyRsult AddQuickReply(string username, string context)
         {
             try
             {
-                QuickReplyManager.Create(username, context);
-                return true;
+                var qr = QuickReplyManager.Create(username, context);
+                return new QuickReplyRsult(qr);
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
         }
 

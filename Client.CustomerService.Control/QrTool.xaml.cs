@@ -16,16 +16,28 @@ using System.IO.IsolatedStorage;
 
 namespace Client.CustomerService.Control
 {
-    [Window(Pop.ChooseIconWindow)]
+    [Window(Pop.QrTool)]
     public partial class QrTool : ChildWindow, IPop<string>
     {
+        QuickReplyServiceClient client = new QuickReplyServiceClient();
         ObservableCollection<QrModel> rs = new ObservableCollection<QrModel>();
+
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        public string Username
+        {
+            get
+            {
+                string dataKeyOfUsername = DataKey.Client_Username.ToString();
+                return IsolatedStorageSettings.ApplicationSettings[dataKeyOfUsername].ToString();
+            }
+        }
 
         public QrTool()
         {
             InitializeComponent();
-            ic.DataContext = rs;
-            QuickReplyServiceClient client = new QuickReplyServiceClient();
+            ic.ItemsSource = rs;
             client.GetQuickReplysCompleted += (sender, e) =>
                 {
                     int t = 1;
@@ -34,14 +46,15 @@ namespace Client.CustomerService.Control
                         {
                             QrModel qrm = new QrModel
                             {
-                                No = t,
+                                No = t + "、",
+                                Id = x.QuickReplyId,
                                 Context = x.Context
                             };
                             rs.Add(qrm);
                             t++;
                         });
                 };
-            client.GetQuickReplysAsync("");
+            client.GetQuickReplysAsync(Username);
         }
 
         #region 消息
@@ -80,7 +93,9 @@ namespace Client.CustomerService.Control
 
     public class QrModel
     {
-        public int No { get; set; }
+        public string No { get; set; }
+
+        public int Id { get; set; }
 
         public string Context { get; set; }
     }

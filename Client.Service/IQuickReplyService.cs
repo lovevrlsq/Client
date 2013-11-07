@@ -28,7 +28,7 @@ namespace Client.Service
         /// <param name="context">正文</param>
         /// <returns>返回一个布尔值 标识操作是否成功</returns>
         [OperationContract]
-        bool AddQuickReply(string username, string context);
+        QuickReplyRsult AddQuickReply(string username, string context);
 
         /// <summary>
         /// 修改快捷回复

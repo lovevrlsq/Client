@@ -30,8 +30,6 @@
             </Grid.ColumnDefinitions>
             <Control:IconAndPicButton BottonTypeIs="Icon" Grid.Column="1" Command="{Binding ShowChooseIconWindowCommand}" />
             <Control:IconAndPicButton BottonTypeIs="Pic" Grid.Column="2" Command="{Binding ShowUploadPicWindowCommand}"/>
-            <HyperlinkButton Content="快捷回复" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,9,17,5"
-            	Foreground="Green" Grid.Column="3" Command="{Binding ShowQrToolCommand}"/>
         </Grid>
         <TextBox Grid.Row="1" Width="Auto" Height="Auto" BorderThickness="0" AcceptsReturn="True"
                  TextWrapping="Wrap" Text="{Binding MessageValue,Mode=TwoWay}">
@@ -53,6 +51,10 @@
                     Style="{StaticResource ResourceKey=SubmitButton}"
                     Content="发送" Command="{Binding SendMessageCommand}"
                     ToolTipService.ToolTip="快捷键：Ctrl + Enter"/>
+            <Button Width="70" Height="25" HorizontalAlignment="Right" Margin="0,5,85,0"
+            	Style="{StaticResource ResourceKey=SubmitButton}"
+            	Content="快捷回复" Command="{Binding ShowQrToolCommand}"
+            	ToolTipService.ToolTip="快捷键：Ctrl + Enter"/>
         </Grid>
     </Grid>
 </UserControl>

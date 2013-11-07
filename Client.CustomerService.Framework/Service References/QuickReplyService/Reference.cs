@@ -72,7 +72,7 @@ namespace Client.CustomerService.Framework.QuickReplyService {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IQuickReplyService/AddQuickReply", ReplyAction="http://tempuri.org/IQuickReplyService/AddQuickReplyResponse")]
         System.IAsyncResult BeginAddQuickReply(string username, string context, System.AsyncCallback callback, object asyncState);
         
-        bool EndAddQuickReply(System.IAsyncResult result);
+        Client.CustomerService.Framework.QuickReplyService.QuickReplyRsult EndAddQuickReply(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IQuickReplyService/UpdateQuickReply", ReplyAction="http://tempuri.org/IQuickReplyService/UpdateQuickReplyResponse")]
         System.IAsyncResult BeginUpdateQuickReply(int id, string context, System.AsyncCallback callback, object asyncState);
@@ -119,10 +119,10 @@ namespace Client.CustomerService.Framework.QuickReplyService {
             this.results = results;
         }
         
-        public bool Result {
+        public Client.CustomerService.Framework.QuickReplyService.QuickReplyRsult Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
+                return ((Client.CustomerService.Framework.QuickReplyService.QuickReplyRsult)(this.results[0]));
             }
         }
     }
@@ -309,7 +309,7 @@ namespace Client.CustomerService.Framework.QuickReplyService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool Client.CustomerService.Framework.QuickReplyService.IQuickReplyService.EndAddQuickReply(System.IAsyncResult result) {
+        Client.CustomerService.Framework.QuickReplyService.QuickReplyRsult Client.CustomerService.Framework.QuickReplyService.IQuickReplyService.EndAddQuickReply(System.IAsyncResult result) {
             return base.Channel.EndAddQuickReply(result);
         }
         
@@ -320,7 +320,7 @@ namespace Client.CustomerService.Framework.QuickReplyService {
         }
         
         private object[] OnEndAddQuickReply(System.IAsyncResult result) {
-            bool retVal = ((Client.CustomerService.Framework.QuickReplyService.IQuickReplyService)(this)).EndAddQuickReply(result);
+            Client.CustomerService.Framework.QuickReplyService.QuickReplyRsult retVal = ((Client.CustomerService.Framework.QuickReplyService.IQuickReplyService)(this)).EndAddQuickReply(result);
             return new object[] {
                     retVal};
         }
@@ -542,9 +542,9 @@ namespace Client.CustomerService.Framework.QuickReplyService {
                 return _result;
             }
             
-            public bool EndAddQuickReply(System.IAsyncResult result) {
+            public Client.CustomerService.Framework.QuickReplyService.QuickReplyRsult EndAddQuickReply(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("AddQuickReply", _args, result)));
+                Client.CustomerService.Framework.QuickReplyService.QuickReplyRsult _result = ((Client.CustomerService.Framework.QuickReplyService.QuickReplyRsult)(base.EndInvoke("AddQuickReply", _args, result)));
                 return _result;
             }
             

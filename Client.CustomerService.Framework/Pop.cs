@@ -29,6 +29,10 @@ namespace Client.CustomerService.Framework
         /// <summary>
         /// 快捷回复弹窗
         /// </summary>
-        QrTool = 301
+        QrTool = 301,
+        /// <summary>
+        /// 编辑快捷回复的弹窗
+        /// </summary>
+        ManageQrTool = 302
     }
 }

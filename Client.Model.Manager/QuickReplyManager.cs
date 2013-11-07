@@ -15,13 +15,14 @@ namespace Client.Model.Manager
         /// </summary>
         /// <param name="username">所属用户的用户名（如为空则为公用）</param>
         /// <param name="context">正文</param>
-        public static void Create(string username, string context)
+        public static QuickReply Create(string username, string context)
         {
             using (Model2DataContext db = new Model2DataContext())
             {
                 QuickReply qr = new QuickReply(username, context);
                 db.PondOfQuickReply.Add(qr);
                 db.SaveChanges();
+                return qr;
             }
         }
 

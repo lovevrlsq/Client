@@ -3,12 +3,28 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
            xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
            HasCloseButton="False">
-    <Canvas x:Name="LayoutRoot" Width="420" Height="400">
-        <Button Content="管理" Width="60" Height="25" Click="Manage"
+    <Canvas x:Name="LayoutRoot" Width="420" Height="219">
+        <Button Content="添加" Width="60" Height="25" Click="AddQr"
         	Style="{StaticResource ResourceKey=SubmitButton}"
-        	HorizontalAlignment="Right" Canvas.Left="350" Canvas.Top="10"/>
-        <Button Content="取消" Width="60" Height="25" Click="Cancel"
+        	HorizontalAlignment="Right" Canvas.Left="285" Canvas.Top="10"/>
+        <Button Content="返回" Width="60" Height="25"
         	Style="{StaticResource ResourceKey=SubmitButton}"
-        	HorizontalAlignment="Right" Canvas.Left="350" Canvas.Top="40"/>
+        	HorizontalAlignment="Right" Canvas.Left="350" Canvas.Top="10" Click="GoBack"/>
+        <Button Name="button_update" Content="修改" Width="60" Height="25"
+        	Style="{StaticResource ResourceKey=SubmitButton}"
+        	HorizontalAlignment="Right" Canvas.Left="285" Canvas.Top="85" Click="UpdateQr"/>
+        <Button Name="button_remove" Content="删除" Width="60" Height="25"
+        	Style="{StaticResource ResourceKey=SubmitButton}"
+        	HorizontalAlignment="Right" Canvas.Left="285" Canvas.Top="115" Click="RemoveQr"/>
+        <TextBlock Text="设置快捷回复" FontSize="14" Canvas.Left="10" Canvas.Top="13"/>
+        <ComboBox Name="input_no" Width="50" Height="25" Canvas.Left="211" Canvas.Top="10"
+                  SelectionChanged="SelectQr">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding No}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBox Name="input_context" Canvas.Left="10" Canvas.Top="84" Width="251" Height="111" TextWrapping="Wrap"/>
     </Canvas>
 </controls:ChildWindow>

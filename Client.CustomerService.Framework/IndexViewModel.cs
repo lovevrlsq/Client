@@ -217,6 +217,7 @@ namespace Client.CustomerService.Framework
             SendMessageCommand = new UniversalCommand(new Action<object>(SendNewMessage));
             ShowChooseIconWindowCommand = new UniversalCommand(new Action<object>(ShowChooseIconWindow));
             ShowUploadPicWindowCommand = new UniversalCommand(new Action<object>(ShowUploadPicWindow));
+            ShowQrToolCommand = new UniversalCommand(new Action<object>(ShowQrTool));
             KeepHeartbeat();
         }
 
@@ -359,6 +360,28 @@ namespace Client.CustomerService.Framework
 
         void ShowQrTool(object parameter)
         {
+            IPop<string> cw = ViewModelService.Current.GetPop(Pop.QrTool) as IPop<string>;
+            cw.Closed += ShowQrTool_Closed;
+            cw.Show();
+        }
+
+        void ShowQrTool_Closed(object sender, EventArgs e)
+        {
+            IPop<string> _cw = (IPop<string>)sender;
+            if (_cw.DialogResult != true) { return; }
+            if (_cw.State != "")
+            {
+                MessageValue += _cw.State;
+                return;
+            }
+            IPop cw = ViewModelService.Current.GetPop(Pop.ManageQrTool);
+            cw.Closed += cw_Closed;
+            cw.Show();
+        }
+
+        void cw_Closed(object sender, EventArgs e)
+        {
+            ShowQrTool(null);
         }
 
         #endregion
