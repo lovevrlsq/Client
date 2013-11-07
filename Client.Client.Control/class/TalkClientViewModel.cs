@@ -18,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using System.IO;
 using Client.Client.Control.PicService;
+using System.Windows.Threading;
 
 namespace Client.Client.Control
 {
@@ -295,6 +296,7 @@ namespace Client.Client.Control
             ChatClient.ChangeTargetUserCompleted += WriteUnreadMessages;
 
             ChatClient.RegisterAndGetFriendListAsync(Self, false);
+            KeepHeartbeat();
         }
 
         #endregion
@@ -615,6 +617,21 @@ namespace Client.Client.Control
                     Messages.Add(x);
                 });
         }
+
+        #region 心跳协议
+
+        void KeepHeartbeat()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 30);
+            timer.Tick += (sender, e) =>
+            {
+                ChatClient.KeepHeartbeatAsync(this.Self);
+            };
+            timer.Start();
+        }
+
+        #endregion
 
         #endregion
 

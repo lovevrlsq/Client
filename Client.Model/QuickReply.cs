@@ -13,9 +13,9 @@ namespace Client.Model
         #region 属性
 
         /// <summary>
-        /// 所属用户的存储指针（如为0则为公用）
+        /// 所属用户的用户名（如为空则为公用）
         /// </summary>
-        public virtual int OwnerId { get; set; }
+        public string Username { get; set; }
 
         /// <summary>
         /// 正文
@@ -36,11 +36,11 @@ namespace Client.Model
         /// <summary>
         /// 实例化一个新的快捷回复
         /// </summary>
-        /// <param name="ownerId">所属用户的存储指针（如为零则为公用）</param>
+        /// <param name="username">所属用户的存储指针（如为零则为公用）</param>
         /// <param name="context">正文</param>
-        public QuickReply(int ownerId, string context)
+        public QuickReply(string username, string context)
         {
-            this.OwnerId = ownerId;
+            this.Username = username;
             this.Context = context;
         }
 

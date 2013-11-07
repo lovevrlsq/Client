@@ -25,6 +25,10 @@ namespace Client.CustomerService.Framework
         /// <summary>
         /// 上传图片窗口
         /// </summary>
-        UploadPicWindow = 202
+        UploadPicWindow = 202,
+        /// <summary>
+        /// 快捷回复弹窗
+        /// </summary>
+        QrTool = 301
     }
 }

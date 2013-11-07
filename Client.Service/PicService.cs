@@ -37,7 +37,7 @@ namespace Client.Service
         /// <returns>返回图片的流文件</returns>
         public Stream Download(string token)
         {
-            byte[] t = new PicRead().ReadPic(token);
+            byte[] t = new PicReader().ReadPic(token);
             Stream s = new MemoryStream(t);
             return s;
         }

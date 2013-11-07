@@ -91,6 +91,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\QuickReplyService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UniversalCommand.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="Pop.cs" />
@@ -139,6 +144,16 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\QuickReplyService\Client.CustomerService.Framework.QuickReplyService.QuickReplyRsult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuickReplyService\QuickReplyService.disco" />
+    <None Include="Service References\QuickReplyService\configuration91.svcinfo" />
+    <None Include="Service References\QuickReplyService\configuration.svcinfo" />
+    <None Include="Service References\QuickReplyService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\ChatService\Client.Model.xsd">
       <SubType>Designer</SubType>
@@ -163,6 +178,16 @@
     <None Include="Service References\PicService\PicService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\QuickReplyService\QuickReplyService.wsdl" />
+    <None Include="Service References\QuickReplyService\QuickReplyService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuickReplyService\QuickReplyService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuickReplyService\QuickReplyService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="_Client.CustomerService.Framework.cd" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +197,7 @@
     <WCFMetadataStorage Include="Service References\ChatService\" />
     <WCFMetadataStorage Include="Service References\OfficialLoginService\" />
     <WCFMetadataStorage Include="Service References\PicService\" />
+    <WCFMetadataStorage Include="Service References\QuickReplyService\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

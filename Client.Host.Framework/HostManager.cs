@@ -16,6 +16,7 @@ namespace Client.Host.Framework
         static ServiceHost picHost = new ServiceHost(typeof(PicService));
         static ServiceHost loginHost = new ServiceHost(typeof(OfficialLoginService));
         static ServiceHost domainHost = new ServiceHost(typeof(DomainService));
+        static ServiceHost quickReplyHost = new ServiceHost(typeof(QuickReplyService));
         static bool running = false;
 
         /// <summary>
@@ -33,6 +34,7 @@ namespace Client.Host.Framework
             picHost.Open();
             loginHost.Open();
             domainHost.Open();
+            quickReplyHost.Open();
             running = true;
         }
 
@@ -46,6 +48,7 @@ namespace Client.Host.Framework
             picHost.Close();
             loginHost.Close();
             domainHost.Close();
+            quickReplyHost.Close();
             Reset();
             running = false;
         }
@@ -59,6 +62,7 @@ namespace Client.Host.Framework
             picHost = new ServiceHost(typeof(PicService));
             loginHost = new ServiceHost(typeof(OfficialLoginService));
             domainHost = new ServiceHost(typeof(DomainService));
+            quickReplyHost = new ServiceHost(typeof(QuickReplyService));
         }
     }
 }

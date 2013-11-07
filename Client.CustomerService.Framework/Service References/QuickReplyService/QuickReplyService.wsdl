@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="QuickReplyService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.119:4511/QuickReplyService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.119:4511/QuickReplyService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.119:4511/QuickReplyService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Client.Service.DataContract" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IQuickReplyService_GetQuickReplys_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickReplys" />
+  </wsdl:message>
+  <wsdl:message name="IQuickReplyService_GetQuickReplys_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickReplysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQuickReplyService_AddQuickReply_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddQuickReply" />
+  </wsdl:message>
+  <wsdl:message name="IQuickReplyService_AddQuickReply_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddQuickReplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQuickReplyService_UpdateQuickReply_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateQuickReply" />
+  </wsdl:message>
+  <wsdl:message name="IQuickReplyService_UpdateQuickReply_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateQuickReplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQuickReplyService_RemoveQuickReply_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveQuickReply" />
+  </wsdl:message>
+  <wsdl:message name="IQuickReplyService_RemoveQuickReply_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveQuickReplyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IQuickReplyService">
+    <wsdl:operation name="GetQuickReplys">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuickReplyService/GetQuickReplys" message="tns:IQuickReplyService_GetQuickReplys_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuickReplyService/GetQuickReplysResponse" message="tns:IQuickReplyService_GetQuickReplys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddQuickReply">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuickReplyService/AddQuickReply" message="tns:IQuickReplyService_AddQuickReply_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuickReplyService/AddQuickReplyResponse" message="tns:IQuickReplyService_AddQuickReply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateQuickReply">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuickReplyService/UpdateQuickReply" message="tns:IQuickReplyService_UpdateQuickReply_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuickReplyService/UpdateQuickReplyResponse" message="tns:IQuickReplyService_UpdateQuickReply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveQuickReply">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuickReplyService/RemoveQuickReply" message="tns:IQuickReplyService_RemoveQuickReply_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuickReplyService/RemoveQuickReplyResponse" message="tns:IQuickReplyService_RemoveQuickReply_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IQuickReplyService" type="tns:IQuickReplyService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetQuickReplys">
+      <soap:operation soapAction="http://tempuri.org/IQuickReplyService/GetQuickReplys" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddQuickReply">
+      <soap:operation soapAction="http://tempuri.org/IQuickReplyService/AddQuickReply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateQuickReply">
+      <soap:operation soapAction="http://tempuri.org/IQuickReplyService/UpdateQuickReply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveQuickReply">
+      <soap:operation soapAction="http://tempuri.org/IQuickReplyService/RemoveQuickReply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QuickReplyService">
+    <wsdl:port name="BasicHttpBinding_IQuickReplyService" binding="tns:BasicHttpBinding_IQuickReplyService">
+      <soap:address location="http://192.168.1.119:4511/QuickReplyService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

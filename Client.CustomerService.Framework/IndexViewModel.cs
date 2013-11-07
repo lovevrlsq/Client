@@ -189,6 +189,11 @@ namespace Client.CustomerService.Framework
         /// </summary>
         public UniversalCommand ShowUploadPicWindowCommand { get; set; }
 
+        /// <summary>
+        /// 显示快捷回复窗口的命令
+        /// </summary>
+        public UniversalCommand ShowQrToolCommand { get; set; }
+
         #endregion
 
         #region 构造方法
@@ -346,6 +351,14 @@ namespace Client.CustomerService.Framework
                     MessageValue += value;
                 };
             cw.Show();
+        }
+
+        #endregion
+
+        #region 显示快捷回复窗口的命令
+
+        void ShowQrTool(object parameter)
+        {
         }
 
         #endregion

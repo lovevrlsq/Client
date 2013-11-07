@@ -10,6 +10,10 @@
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
+        <binding name="BasicHttpBinding_IQuickReplyService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
       </basicHttpBinding>
       <customBinding>
         <binding name="NetTcpBinding_IChatService">
@@ -28,6 +32,9 @@
       <endpoint address="http://192.168.1.119:4511/OfficialLoginService"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IOfficialLoginService"
         contract="OfficialLoginService.IOfficialLoginService" name="BasicHttpBinding_IOfficialLoginService" />
+      <endpoint address="http://192.168.1.119:4511/QuickReplyService"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IQuickReplyService"
+        contract="QuickReplyService.IQuickReplyService" name="BasicHttpBinding_IQuickReplyService" />
     </client>
   </system.serviceModel>
 </configuration>

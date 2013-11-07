@@ -6,7 +6,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DomainService.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Client.Service.PicService" Collapsed="true">
     <Position X="5.75" Y="0.5" Width="1.5" />
@@ -14,35 +14,43 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>PicService.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Client.Service.MyPond" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+    <Position X="0.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAQAAAAAAICYAABAIIAADAAQAEAAEAAAAABBAAA=</HashCode>
       <FileName>MyPond.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Client.Service.ChatService" Collapsed="true">
-    <Position X="5.75" Y="1.5" Width="1.5" />
+    <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAEAACAAAAAACAAQEAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAEAACAAAAAACAQQEAAAAAAAAAAAAAA=</HashCode>
       <FileName>ChatService.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Client.Service.OfficialLoginService" Collapsed="true">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+    <Position X="2.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>OfficialLoginService.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Client.Service.QuickReplyService" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAgAAAAEAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>QuickReplyService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Interface Name="Client.Service.IChatService" Collapsed="true">
     <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAEAACAAAAAACAAQEAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAEAACAAAAAACAQQEAAAAAAAAAAAAAA=</HashCode>
       <FileName>IChatService.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -72,6 +80,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>IPicService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Client.Service.IQuickReplyService" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAgAAAAEAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>IQuickReplyService.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Microsoft YaHei UI" Size="9" />

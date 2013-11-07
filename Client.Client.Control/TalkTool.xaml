@@ -143,7 +143,6 @@
             <StackPanel Orientation="Horizontal" Margin="5,0">
                 <Control:IconAndPicButton Height="22" Command="{Binding ShowChooseIconWindowCommand}" />
                 <Control:IconAndPicButton BottonTypeIs="Pic" Height="22" Command="{Binding ShowUploadPicWindowCommand}" />
-                <Control:IconAndPicButton BottonTypeIs="Screenshot" Height="22" Command="{Binding ShowScreenshotWindowCommand}" />
             </StackPanel>
         </Grid>
         <!--底部信息显示和发送消息按键-->

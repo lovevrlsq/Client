@@ -46,8 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageReader.cs" />
-    <Compile Include="PicRead.cs" />
+    <Compile Include="PicReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickReplyReader.cs" />
     <Compile Include="UserReader.cs" />
   </ItemGroup>
   <ItemGroup>

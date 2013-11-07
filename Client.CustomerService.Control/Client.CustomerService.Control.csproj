@@ -80,8 +80,17 @@
     <Compile Include="IconAndPicButton.xaml.cs">
       <DependentUpon>IconAndPicButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ManageQrTool.xaml.cs">
+      <DependentUpon>ManageQrTool.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MessageShowTool.xaml.cs">
       <DependentUpon>MessageShowTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QrRow.xaml.cs">
+      <DependentUpon>QrRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QrTool.xaml.cs">
+      <DependentUpon>QrTool.xaml</DependentUpon>
     </Compile>
     <Compile Include="tool\KeepTextRealTime.cs" />
     <Compile Include="LoginPrompt.xaml.cs">
@@ -140,6 +149,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ManageQrTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MenuButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +162,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NormalPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QrRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QrTool.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

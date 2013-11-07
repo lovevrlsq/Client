@@ -14,11 +14,18 @@
       <FileName>UserReader.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Client.Service.Reader.PicRead" Collapsed="true">
+  <Class Name="Client.Service.Reader.PicReader" Collapsed="true">
     <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
-      <FileName>PicRead.cs</FileName>
+      <FileName>PicReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Client.Service.Reader.QuickReplyReader" Collapsed="true">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>QuickReplyReader.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Microsoft YaHei UI" Size="9" />
