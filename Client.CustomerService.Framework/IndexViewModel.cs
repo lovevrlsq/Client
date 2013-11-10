@@ -434,10 +434,10 @@ namespace Client.CustomerService.Framework
         void KeepHeartbeat()
         {
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(300);
+            timer.Interval = new TimeSpan(0, 0, 10);
             timer.Tick += (sender, e) =>
                 {
-                    chatClient.KeepHeartbeatAsync(Username);
+                    chatClient.RegisterAndGetFriendListAsync(Username, true);
                 };
             timer.Start();
         }
