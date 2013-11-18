@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{E196ED40-C7C3-401E-8F2F-AEB9F814266C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basis", "Basis", "{B02974DC-4651-454F-A29F-FE722306420A}"
@@ -8,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{A7ECF6A4-77AD-4043-94E9-A24AFBA45B03}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{944A7383-D313-479B-A3E4-38785279F794}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomerService", "CustomerService", "{61BCDF47-3D1A-4636-B924-6F905C3632EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Model", "Client.Model\Client.Model.csproj", "{250C87FD-09D6-480A-AF1D-8281D8A0E132}"
 EndProject
@@ -18,8 +22,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Service.DataContract", "Client.Service.DataContract\Client.Service.DataContract.csproj", "{7F28EBDB-34CC-4F78-AAD2-A87EA4C8AFEF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Service.Reader", "Client.Service.Reader\Client.Service.Reader.csproj", "{3C59AAD9-49E7-45E7-A87B-13B45441F47C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomerService", "CustomerService", "{61BCDF47-3D1A-4636-B924-6F905C3632EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.CustomerService", "Client.CustomerService\Client.CustomerService.csproj", "{1E561CF3-6F6C-4054-8F16-339D0FB084E5}"
 EndProject
