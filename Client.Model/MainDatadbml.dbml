@@ -1,48 +1,37 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IWorld" Class="MainDatadbmlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=MAGICVR-PC;Initial Catalog=IWorld;Integrated Security=True" SettingsObjectName="Client.Model.Properties.Settings" SettingsPropertyName="IWorldConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.IWorld_Author" Member="IWorld_Author">
-    <Type Name="IWorld_Author">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="zwg_iworld" Class="MainDatadbmlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LOVEVR;Initial Catalog=zwg_iworld;Integrated Security=True" SettingsObjectName="Client.Model.Properties.Settings" SettingsPropertyName="zwg_iworldConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[zwg-Author]" Member="zwg_Author">
+    <Type Name="zwg_Author">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FundsCode" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SafeCode" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="BindingEmail" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="IsAgents" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="NormalReturnPoints" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="UncertainReturnPoints" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="Money" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="MoneyBeFrozen" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="Consumption" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="Integral" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="Holder" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Card" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Bank" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="BindingCard" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaxOfSubordinate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Subordinate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="LastLoginTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="LastLoginIp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="LeftKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="RightKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginAddress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Subordinate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Money" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Money_Frozen" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Consumption" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Integral" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Layer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Tree" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="CreatedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Timestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Column Name="BindingId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlayInfoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="zwg_Author_zwg_Relative" Member="zwg_Relative" ThisKey="Id" OtherKey="Author_Id" Type="zwg_Relative" />
     </Type>
   </Table>
-  <Table Name="dbo.IWorld_Administrator" Member="IWorld_Administrator">
-    <Type Name="IWorld_Administrator">
+  <Table Name="dbo.[zwg-Relative]" Member="zwg_Relative">
+    <Type Name="zwg_Relative">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="LastLoginTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="LastLoginIp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CreatedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NodeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NodeLayer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Author_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="zwg_Author_zwg_Relative" Member="zwg_Author" ThisKey="Author_Id" OtherKey="Id" Type="zwg_Author" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

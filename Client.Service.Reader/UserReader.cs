@@ -23,7 +23,7 @@ namespace Client.Service.Reader
         {
             using (MainDatadbmlDataContext db = new MainDatadbmlDataContext())
             {
-                return db.IWorld_Author
+                return db.zwg_Author
                     .Any(x => x.Username == username && x.Password == EncryptByMd5(password));
             }
         }

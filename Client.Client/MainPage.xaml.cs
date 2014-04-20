@@ -18,7 +18,7 @@ namespace Client.Client
         public MainPage()
         {
             string dataKeyOfSelf = "Client_Self";
-            IsolatedStorageSettings.ApplicationSettings[dataKeyOfSelf] = "admin";
+            IsolatedStorageSettings.ApplicationSettings[dataKeyOfSelf] = "admin001";
             InitializeComponent();
         }
     }

@@ -2,17 +2,24 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MainDatadbml">
   <DataContextMoniker Name="/MainDatadbmlDataContext" />
   <nestedChildShapes>
-    <classShape Id="b1d5960d-47a9-407b-aff7-0173a237c408" absoluteBounds="0.5, 0.5, 2, 6.1571577962239576">
-      <DataClassMoniker Name="/MainDatadbmlDataContext/IWorld_Author" />
+    <classShape Id="fc3304a1-1f25-47b7-a436-3fc5cdc4aa52" absoluteBounds="0.5, 0.875, 2, 4.4940108235677076">
+      <DataClassMoniker Name="/MainDatadbmlDataContext/zwg_Author" />
       <nestedChildShapes>
-        <elementListCompartment Id="ef7cfdf2-7020-49be-9156-bde3b9cf06fe" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 5.597157796223958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1507766d-748d-40a2-977b-7011bb208d0d" absoluteBounds="0.51500000000000012, 1.335, 1.9700000000000002, 3.934010823567708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="06acc38f-b615-44c0-864c-3bd57b961dc5" absoluteBounds="2.875, 0.5, 2, 2.2764815266927085">
-      <DataClassMoniker Name="/MainDatadbmlDataContext/IWorld_Administrator" />
+    <classShape Id="31af03a5-8876-4995-82f9-2dc7ab9f414f" absoluteBounds="2.875, 0.875, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/MainDatadbmlDataContext/zwg_Relative" />
       <nestedChildShapes>
-        <elementListCompartment Id="cf97aa69-971e-404d-9787-f08925048472" absoluteBounds="2.8899999999999997, 0.96, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b192d2fb-5708-457c-97cd-72cac50db698" absoluteBounds="2.8899999999999997, 1.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.64365254720052); (2.875 : 1.64365254720052)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MainDatadbmlDataContext/zwg_Author/zwg_Author_zwg_Relative" />
+      <nodes>
+        <classShapeMoniker Id="fc3304a1-1f25-47b7-a436-3fc5cdc4aa52" />
+        <classShapeMoniker Id="31af03a5-8876-4995-82f9-2dc7ab9f414f" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

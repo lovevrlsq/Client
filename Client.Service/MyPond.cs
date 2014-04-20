@@ -47,13 +47,15 @@ namespace Client.Service
             Tokens = new List<UserTokenAndCallback>();
             using (MainDatadbmlDataContext db = new MainDatadbmlDataContext())
             {
-                db.IWorld_Author.ToList().ForEach(x =>
+                db.zwg_Author.ToList().ForEach(x =>
                     {
                         string pid = "Null";
                         if (x.Layer > 1)
                         {
-                            pid = db.IWorld_Author.First(u => u.LeftKey < x.LeftKey && u.RightKey > x.RightKey && u.Layer == x.Layer - 1)
-                                .Id.ToString();
+                            pid = db.zwg_Relative.Where(u => u.Author_Id == x.Id && u.NodeLayer == x.Layer - 1)
+                                .Select(u => u.NodeId)
+                                .First()
+                                .ToString();
                         }
                         UserToken token = new UserToken(x.Username, x.Id, pid);
                         token.TimeoutEventHandler += RemoveCallback;
@@ -246,14 +248,16 @@ namespace Client.Service
         {
             using (MainDatadbmlDataContext db = new MainDatadbmlDataContext())
             {
-                db.IWorld_Author.ToList().ForEach(x =>
+                db.zwg_Author.ToList().ForEach(x =>
                     {
                         if (Tokens.Any(u => u.Token.Username == x.Username)) { return; }
                         string pid = "Null";
                         if (x.Layer > 1)
                         {
-                            pid = db.IWorld_Author.First(u => u.LeftKey < x.LeftKey && u.RightKey > x.RightKey && u.Layer == x.Layer - 1)
-                                .Id.ToString();
+                            pid = db.zwg_Relative.Where(u => u.Author_Id == x.Id && u.NodeLayer == x.Layer - 1)
+                                .Select(u => u.NodeId)
+                                .First()
+                                .ToString();
                         }
                         UserToken token = new UserToken(x.Username, x.Id, pid);
                         token.TimeoutEventHandler += RemoveCallback;
