@@ -384,6 +384,7 @@ namespace Client.CustomerService.Framework
                     if (!Users.Any(u => u.Username == x.Username)) { return; }
                     Users.First(u => u.Username == x.Username).CountOfNewMessage = x.Count;
                 });
+            RefreshUsersOrder();
             OnPropertyChanged("Users");
         }
 
@@ -446,6 +447,20 @@ namespace Client.CustomerService.Framework
 
         #endregion
 
+        #region 刷新用户列表的排序
+
+        void RefreshUsersOrder()
+        {
+            lock (Users)
+            {
+                var _users = Users.OrderByDescending(x => x.CountOfNewMessage).ToList();
+                Users.Clear();
+                _users.ForEach(x => Users.Add(x));
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #region 服务端回调方法
@@ -454,6 +469,8 @@ namespace Client.CustomerService.Framework
         {
             if (!Users.Any(x => x.Username == username)) { return; }
             Users.First(x => x.Username == username).CountOfNewMessage++;
+            RefreshUsersOrder();
+            OnPropertyChanged("Users");
         }
 
         public void WriteMessage(MessageResult message)
@@ -481,6 +498,7 @@ namespace Client.CustomerService.Framework
             {
                 u.UserType = UserInfoModel.UserModelType.离线;
             }
+            RefreshUsersOrder();
             OnPropertyChanged("Users");
         }
 
