@@ -32,6 +32,8 @@ namespace Client.CustomerService.Framework
         int pageInde = 0;
         int allPage = 0;
         GridLength talkToolHeight = new GridLength(220);
+        bool haveNewMessage = false;
+        DispatcherTimer timer;
 
         #endregion
 
@@ -97,6 +99,22 @@ namespace Client.CustomerService.Framework
                 {
                     messageValue = value;
                     OnPropertyChanged("MessageValue");
+                }
+            }
+        }
+
+        /// <summary>
+        /// 一个布尔值 表示是否有新的消息
+        /// </summary>
+        public bool HaveNewMessage
+        {
+            get { return haveNewMessage; }
+            set
+            {
+                if (haveNewMessage != value)
+                {
+                    haveNewMessage = value;
+                    OnPropertyChanged("HaveNewMessage");
                 }
             }
         }
@@ -213,6 +231,18 @@ namespace Client.CustomerService.Framework
             ShowChooseIconWindowCommand = new UniversalCommand(new Action<object>(ShowChooseIconWindow));
             ShowUploadPicWindowCommand = new UniversalCommand(new Action<object>(ShowUploadPicWindow));
             KeepHeartbeat();
+
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if (Users == null) { return; }
+            if (Users.Count == 0) { return; }
+            this.HaveNewMessage = Users.Sum(x => x.CountOfNewMessage) == 0 ? false : true;
         }
 
         #endregion
@@ -358,9 +388,9 @@ namespace Client.CustomerService.Framework
         void WriteFriendList(object sender, RegisterAndGetFriendListCompletedEventArgs e)
         {
             if (Users == null) { Users = new ObservableCollection<UserInfoModel>(); }
-            Users.Clear();
             e.Result.Users.OrderByDescending(x => x.OnlineStatus).ToList().ForEach(x =>
                 {
+                    if (Users.Any(u => u.Username == x.Username)) { return; }
                     UserInfoModel.UserModelType _type = UserInfoModel.UserModelType.离线;
                     if (x.Type == UserInfoType.客服)
                     {
@@ -382,9 +412,11 @@ namespace Client.CustomerService.Framework
             e.Result.UnreadMessageCounts.ForEach(x =>
                 {
                     if (!Users.Any(u => u.Username == x.Username)) { return; }
-                    Users.First(u => u.Username == x.Username).CountOfNewMessage = x.Count;
+                    var t = Users.First(u => u.Username == x.Username);
+                    t.CountOfNewMessage = x.Count;
+                    Users.Remove(t);
+                    Users.Insert(0, t);
                 });
-            RefreshUsersOrder();
             OnPropertyChanged("Users");
         }
 
@@ -447,20 +479,6 @@ namespace Client.CustomerService.Framework
 
         #endregion
 
-        #region 刷新用户列表的排序
-
-        void RefreshUsersOrder()
-        {
-            lock (Users)
-            {
-                var _users = Users.OrderByDescending(x => x.CountOfNewMessage).ToList();
-                Users.Clear();
-                _users.ForEach(x => Users.Add(x));
-            }
-        }
-
-        #endregion
-
         #endregion
 
         #region 服务端回调方法
@@ -468,9 +486,10 @@ namespace Client.CustomerService.Framework
         public void AddTheCountOfNewMessageForSomeone(string username)
         {
             if (!Users.Any(x => x.Username == username)) { return; }
-            Users.First(x => x.Username == username).CountOfNewMessage++;
-            RefreshUsersOrder();
-            OnPropertyChanged("Users");
+            var t = Users.First(u => u.Username == username);
+            t.CountOfNewMessage++;
+            Users.Remove(t);
+            Users.Insert(0, t);
         }
 
         public void WriteMessage(MessageResult message)
@@ -498,7 +517,6 @@ namespace Client.CustomerService.Framework
             {
                 u.UserType = UserInfoModel.UserModelType.离线;
             }
-            RefreshUsersOrder();
             OnPropertyChanged("Users");
         }
 

@@ -17,6 +17,35 @@ namespace Client.CustomerService.Control
         public UserListTool()
         {
             InitializeComponent();
+            Storyboard s = new Storyboard();
+            s.Duration = new Duration(new TimeSpan(0, 0, 4));
+            s.Completed += s_Completed;
+            s_Completed(s, null);
         }
+
+        void s_Completed(object sender, EventArgs e)
+        {
+            if (HaveNewMessage)
+            {
+                MediaElement me = (MediaElement)this.Resources["_music"];
+                me.Stop();
+                me.Play();
+            }
+            Storyboard s = (Storyboard)sender;
+            s.Begin();
+        }
+
+        #region 依赖属性
+
+        public bool HaveNewMessage
+        {
+            get { return (bool)GetValue(HaveNewMessageProperty); }
+            set { SetValue(HaveNewMessageProperty, value); }
+        }
+
+        public static readonly DependencyProperty HaveNewMessageProperty =
+            DependencyProperty.Register("HaveNewMessage", typeof(bool), typeof(UserListTool), new PropertyMetadata(false));
+
+        #endregion
     }
 }

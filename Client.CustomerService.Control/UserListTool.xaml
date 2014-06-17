@@ -7,6 +7,7 @@
     mc:Ignorable="d">
     <ItemsControl.Resources>
         <fw:CountOfNewMessageConverter x:Key="countOfNewMessageConverter"/>
+        <MediaElement x:Key="_music" Source="music/music_p.wma" Volume="1" AutoPlay="False"/>
     </ItemsControl.Resources>
     <ItemsControl.Template>
         <ControlTemplate>

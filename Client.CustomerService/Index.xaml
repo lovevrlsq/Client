@@ -107,7 +107,7 @@
             </Grid>
             <ScrollViewer Grid.Row="3" Margin="20,0,15,0" VerticalScrollBarVisibility="Visible"
                           HorizontalScrollBarVisibility="Hidden">
-                <Control:UserListTool ItemsSource="{Binding Users}" />
+                <Control:UserListTool ItemsSource="{Binding Users}" HaveNewMessage="{Binding HaveNewMessage}" />
             </ScrollViewer>
             <Border Width="5" HorizontalAlignment="Right" Grid.RowSpan="5">
                 <Border.Background>
